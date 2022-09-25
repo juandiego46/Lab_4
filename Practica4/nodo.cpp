@@ -8,21 +8,34 @@ map<string, int> Nodo::getTabla()
     return tabla;
 }
 
-void Nodo::setTabla(map<string, int> newTabla)
+void Nodo::setTabla(string _nombre, int _costo)
 {
-    tabla = newTabla;
+    tabla.insert(make_pair(_nombre, _costo));
+    //tabla = newTabla;
+}
+
+
+
+void Nodo::cambiarCosto(string nombre, int nuevoCosto)
+{
+    for(auto i = tabla.begin(); i != tabla.end(); i++){
+        if(nombre == i->first){
+            i->second = nuevoCosto;
+        }
+    }
 }
 
 
 
 void Nodo::imprimirTabla()
 {
+    cout << "Nodo " << nombre << endl;
+    cout << "Conec" << "|" << "Costo" << endl;
     for(auto i = tabla.begin(); i != tabla.end(); i++){
-        cout << "Nodo: "<< getNombre() << " Conectado: " << i->first << " Costo: " << i->second << "|";
+        cout << i->first << "    |    " << i->second << endl;
     }
-    cout << endl;
-}
 
+}
 
 
 string Nodo::getNombre()

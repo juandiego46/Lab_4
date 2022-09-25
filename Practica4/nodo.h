@@ -19,9 +19,12 @@ public:
     void setNombre(string _nombre);
 
     map<string, int> getTabla();
-    void setTabla(map<string, int> newTabla);
+    void setTabla(string _nombre, int _costo);
+
+    void cambiarCosto(string nombre, int nuevoCosto);
 
     void imprimirTabla();
+
 
 };
 
